@@ -1,49 +1,79 @@
-# 🎓 Student Learning Hub
+# Student Learning Hub
 
-**Empowering students with digital resources and interactive learning tools.**
+A web-based learning platform for students and teachers, with a digital textbook library, learning resources, and tools for tracking student progress.
 
----
+## Overview
 
-## 🌐 Overview
+Student Learning Hub provides student and teacher pages for accessing educational materials. The project includes textbooks and other resources for grades 6–10, a resource upload flow, and basic chat and progress features.
 
-**Student Learning Hub** is a modern, web-based educational platform designed specifically for students in **grades 6 to 10**. It offers centralized access to curriculum-based textbooks, teacher-uploaded study materials, real-time communication, and personalized dashboards for progress tracking.
+## Features
 
-Whether you're a student seeking clarity, a teacher sharing resources, or an administrator overseeing activity — this hub simplifies and enhances the digital learning experience.
+- Student-facing and teacher-facing pages
+- Textbook and learning resource listings for grades 6–10
+- Teacher resource upload support
+- Basic chat and progress APIs
+- Resource search and filtering features in the interface
 
----
+## Technology
 
-## 🚀 Features
+- **Frontend:** HTML, CSS, JavaScript
+- **Backend:** Node.js, Express
+- **File uploads:** Multer
+- **Data storage:** JSON files in the `data/` folder
 
-🔐 **Role-Based Access**  
-- Students, Teachers, and Admins have dedicated interfaces and privileges.
+> This project does not currently use MongoDB. The backend reads and writes local JSON files.
 
-📚 **Digital Textbook Library**  
-- Easy access to subject-wise textbooks for all supported grades.
+## Project Structure
 
-📁 **Teacher Resource Uploads**  
-- Teachers can upload notes, assignments, and learning materials in various formats.
+```text
+student-learning-hub-main/
+├── data/
+│   ├── chat.json
+│   ├── progress.json
+│   └── resources.json
+├── public/
+│   ├── pdfs/             # Textbooks and learning materials
+│   ├── ind.html
+│   ├── welcome.html
+│   ├── teacher.html
+│   └── frontend scripts and styles
+├── uploads/              # Files uploaded through the app
+├── package.json
+└── server.js
+```
 
-💬 **Student–Teacher Chat**  
-- Real-time messaging to promote direct and personalized learning.
+## Requirements
 
-📌 **Bookmarks & Favorites**  
-- Save and revisit important resources anytime.
+- Node.js
+- npm
 
-📊 **Interactive Dashboards**  
-- Track academic progress, resource usage, and upcoming tasks.
+## Run Locally
 
-🔎 **Search & Filter Tools**  
-- Quickly locate resources and content using smart filters.
+1. Open a terminal in the project folder.
+2. Install the project dependencies:
 
----
+   ```bash
+   npm install
+   ```
 
-## 🛠️ Tech Stack
+3. Start the server:
 
-- **Frontend**: HTML5, CSS3, JavaScript  
-- **Backend**: Node.js, Express.js  
-- **Database**: MongoDB 
+   ```bash
+   node server.js
+   ```
 
----
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+The main page is served at `/`. The project also includes student and teacher pages at `/ind` and `/teacher`.
 
+## Data and Uploads
 
+The application stores resource, chat, and progress data in JSON files inside `data/`. Files uploaded through the application are stored in `uploads/`.
+
+These files are stored locally by the application. Back them up if you need to preserve data between machines.
+
+## Notes
+
+- Do not upload the `node_modules` folder to GitHub; it can be recreated with `npm install`.
+- The app uses local JSON file storage, so it is intended for local or demonstration use unless its storage and access controls are expanded.
+- The project should not be treated as a secure production system without additional authentication, validation, and security work.
